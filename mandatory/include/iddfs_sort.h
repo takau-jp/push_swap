@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   random_utils.c                                     :+:      :+:    :+:   */
+/*   iddfs_sort.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 18:32:41 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 04:50:29 by stanaka2         ###   ########.fr       */
+/*   Created: 2025/12/11 01:32:41 by stanaka2          #+#    #+#             */
+/*   Updated: 2025/12/11 02:56:25 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef IDDFS_SORT_H
+# define IDDFS_SORT_H
 
-void	set_random_seed(t_ctx *ctx)
+# include "types.h"
+
+# define ORDER_TYPES 11
+
+enum e_order_type
 {
-	ctx->random_seed = (uint32_t)0x12345678;
-}
+	RA,
+	RRA,
+	RB,
+	RRB,
+	RR,
+	RRR,
+	SA,
+	SB,
+	SS,
+	PA,
+	PB,
+};
 
-double	range_random(t_ctx *ctx, double min, double max)
-{
-	double	random;
+void	iddfs_sort(t_ctx *ctx);
+void	set_order_table(t_order_func order_table[ORDER_TYPES]);
+bool	is_sorted(t_ctx *ctx);
+bool	is_valid_order(t_ctx *ctx, t_order_type order_type);
+void	restore_order(t_ctx *ctx, t_order_type order_type);
 
-	random = (double)(ft_xorshift(&(ctx->random_seed))) / (double)UINT32_MAX;
-	return (min + (max - min) * random);
-}
+#endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   restore_order.c                                    :+:      :+:    :+:   */
+/*   restore_order_push.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 14:58:12 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 04:37:07 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 01:59:54 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,4 @@ void	restore_pb(t_ctx *ctx)
 	ps_stack_add_front(&(ctx->stack_a.top), element);
 	ctx->stack_a.size++;
 	ctx->stack_b.size--;
-}
-
-void	restore_rotate_order(t_ctx *ctx, t_order *order_node)
-{
-	while (order_node->ra-- > 0)
-		ctx->stack_a.top = ctx->stack_a.top->prev;
-	while (order_node->rra-- > 0)
-		ctx->stack_a.top = ctx->stack_a.top->next;
-	while (order_node->rb-- > 0)
-		ctx->stack_b.top = ctx->stack_b.top->prev;
-	while (order_node->rrb-- > 0)
-		ctx->stack_b.top = ctx->stack_b.top->next;
-	while (order_node->rr-- > 0)
-	{
-		ctx->stack_a.top = ctx->stack_a.top->prev;
-		ctx->stack_b.top = ctx->stack_b.top->prev;
-	}
-	while (order_node->rrr-- > 0)
-	{
-		ctx->stack_a.top = ctx->stack_a.top->next;
-		ctx->stack_b.top = ctx->stack_b.top->next;
-	}
 }

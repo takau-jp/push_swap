@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:13:58 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/06 18:50:43 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 02:47:16 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ void	allocate_unsorted_rank_array(t_ctx *ctx, t_lis lis)
 	if (ctx->unsorted_rank == NULL)
 	{
 		free(lis.seq);
-		free(ctx->rank);
-		ps_stack_clear(ctx);
+		clear_context(ctx);
 		error();
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 16:02:11 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/06 18:43:34 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 01:57:19 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PRE_PROCESS_H
 
 # include "types.h"
+
+# define LIS_INIT INT64_MAX
 
 struct s_lis
 {

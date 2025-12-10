@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 11:58:04 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 04:34:56 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 02:48:24 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,7 @@ void	add_new_order_node(t_ctx *ctx)
 	new = (t_order *)ft_calloc(sizeof(t_order), 1);
 	if (!new)
 	{
-		free(ctx->rank);
-		free(ctx->unsorted_rank);
-		ps_stack_clear(ctx);
-		clear_orders(ctx);
+		clear_context(ctx);
 		error();
 	}
 	if (ctx->head_order == NULL)

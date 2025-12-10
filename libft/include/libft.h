@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:58:34 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/06 22:39:30 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/07 15:46:27 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@
 #   define WRITE_BLOCK_SIZE 16384
 #  endif
 # endif
-
-// 2^31 - 2
-# define FT_RAND_MAX 2147483646
 
 # define DBL_EPSILON 1e-10
 
@@ -119,7 +116,7 @@ t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
 double			ft_fabs(double x);
 double			ft_get_infinity(void);
-unsigned int	ft_rand_r(unsigned int *seed);
+int				ft_rand_r(unsigned int *seed);
 double			ft_round(double x);
 double			ft_sqrt(double x);
 uint32_t		ft_xorshift(uint32_t *seed);

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   three_unsorted_elements_case.c                     :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 17:56:19 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 09:18:20 by stanaka2         ###   ########.fr       */
+/*   Created: 2025/11/25 19:25:30 by stanaka2          #+#    #+#             */
+/*   Updated: 2025/12/07 16:06:27 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	three_unsorted_elements_case(t_ctx *ctx)
+void	error(void)
 {
-	execute_orders(ctx, \
-			(t_order_func []){pb, pb, sa, rrr, pa, pa, NULL});
-	rotate_a_to_rank(ctx, 0);
+	ft_dprintf(STDERR_FILENO, "Error\n");
+	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 13:45:40 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 09:52:41 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 03:28:57 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ t_efficient_rotation	get_efficient_rotation(t_ctx *ctx)
 	set_cost_data(ctx, down_rotate);
 	best_cost = INT64_MAX;
 	calc_best_cost_rotation_without_pivot(ctx, &best_cost, &rotation);
+	calc_best_cost_rotation_with_pivot(ctx, &best_cost, &rotation, down_rotate);
+	calc_best_cost_rotation_with_pivot(ctx, &best_cost, &rotation, up_rotate);
 	return (rotation);
 }
 

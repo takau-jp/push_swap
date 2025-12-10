@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 16:39:44 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 05:13:19 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 03:20:47 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,20 @@ struct s_bias_factor
 
 struct s_restore
 {
+	int64_t		cost;
 	t_order		*confirmed_order_node;
 	t_element	*max_unsorted_element;
 };
 
 struct s_best_state
 {
-	double			cost;
+	int64_t			cost;
 	t_bias_factor	bias;
 };
 
 struct s_push_target
 {
-	double			cost;
+	double			score;
 	t_element		*element;
 	int64_t			rotation_cost_a;
 	int64_t			rotation_cost_a_same;
@@ -61,8 +62,10 @@ int				mark_push_target_for_insertion(t_ctx *ctx, int chunk_number);
 void			insert_chunk(t_ctx *ctx);
 void			set_insert_positions(t_ctx *ctx);
 void			renew_insert_positions(t_ctx *ctx, int64_t inserted_rank);
-t_push_target	search_min_cost_target(t_ctx *ctx);
-void			calc_cost(t_ctx *ctx, t_push_target *target);
+t_push_target	search_min_score_target(t_ctx *ctx);
+void			calc_score(t_ctx *ctx, t_push_target *target);
+void			execute_orders_rotate(t_ctx *ctx, \
+					int64_t rotation_cost, t_order_func rotate_order);
 void			search_best_biases(t_ctx *ctx);
 void			calc_search_area(t_ctx *ctx);
 void			simulate_insert_chunk(t_ctx *ctx);

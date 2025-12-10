@@ -6,7 +6,7 @@
 #    By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/29 14:10:40 by stanaka2          #+#    #+#              #
-#    Updated: 2025/12/07 10:40:54 by stanaka2         ###   ########.fr        #
+#    Updated: 2025/12/11 03:26:34 by stanaka2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,12 +73,11 @@ B_INCLUDE		= -I $(B_INCLUDE_DIR) -I $(LIBFT_INCLUDE_DIR)
 
 SRC_DIRS 	=	mandatory/src \
 				$(addprefix mandatory/src/, \
-					chunk_division $(addprefix chunk_division/, utils) \
-					error \
-					chunk_insertion $(addprefix chunk_insertion/, utils) \
-					less_than_5_elements \
+					utils $(addprefix utils/, sort_utils order_utils stack_utils) \
+					iddfs_sort $(addprefix iddfs_sort/, utils) \
 					pre_process $(addprefix pre_process/, utils) \
-					$(addprefix utils/, sort_utils order_utils stack_utils) \
+					chunk_division $(addprefix chunk_division/, utils) \
+					chunk_insertion $(addprefix chunk_insertion/, utils) \
 				)
 
 B_SRC_DIRS	=	bonus/src \
@@ -109,31 +108,29 @@ endif
 
 # mandatory
 SRCS	=	main.c
-# division
-SRCS	+=	chunk_division.c  mark_push_target_for_division.c  set_cost_data.c  calc_best_cost_rotation.c
-# error
-SRCS	+=	error.c
-# insertion
-SRCS	+=	insert_chunk.c  chunk_insertion.c  search_best_biases.c  random_utils.c  insert_positions.c \
-			calc_search_area.c  calc_cost.c  max_unsorted_element.c \
-			restore.c  search_min_cost_target.c  mark_push_target_for_insertion.c
-# less_than_5_elements
-SRCS	+=	one_unsorted_element_case.c  three_unsorted_elements_case.c  two_unsorted_elements_case.c \
-			two_unsorted_elements_case_04xxx.c  two_unsorted_elements_case_0x4xx.c  two_unsorted_elements_case_0xx4x.c
+# utils
+SRCS	+=	clear_context.c  error.c
+# utils/order_utils
+SRCS	+=	clear_orders.c  print_orders.c  restore_order_push.c  restore_order_swap.c \
+			add_order.c  add_order_rotate.c  add_order_push.c  add_order_reverse_rotate.c  add_order_swap.c \
+			order_command_push.c  order_command_rotate.c  order_command_swap.c  order_command_reverse_rotate.c
+# utils/sort_utils
+SRCS	+=	calc_chunk_count.c  mark_chunk_number.c  calc_rotation_cost.c  calc_push_cost.c \
+			rotate_a_to_rank.c  rotate_utils.c  execute_orders_rotate.c
+# utils/stack_utils
+SRCS	+=	ps_stack_add_back.c  ps_stack_add_front.c  ps_stack_clear.c  ps_stack_new.c
+# iddfs_sort
+SRCS	+=	iddfs_sort.c  is_sorted.c  is_valid_order.c  restore_order.c  set_order_table.c
 # pre_process
 SRCS	+=	coordinate_compression.c  create_rank_array.c  get_longest_increasing_subsequence.c \
 			mark_unsorted.c  sort_num_array.c  free_splitted.c  argument_validations.c \
 			lis_utils.c  parse_argument.c  create_stacks.c
-# utils/order_utils
-SRCS	+=	clear_orders.c  print_orders.c  restore_order.c \
-			add_order.c  add_order_rotate.c  add_order_push.c  add_order_reverse_rotate.c  add_order_swap.c \
-			order_command_push.c  order_command_rotate.c  order_command_swap.c  order_command_reverse_rotate.c
-# utils/sort_utils
-SRCS	+=	calc_chunk_count.c  mark_chunk_number.c  \
-			calc_rotation_cost.c  calc_push_cost.c  \
-			get_insert_position_rank.c  rotate_a_to_rank.c  rotate_utils.c  execute_orders.c
-# utils/stack_utils
-SRCS	+=	ps_stack_add_back.c  ps_stack_add_front.c  ps_stack_clear.c  ps_stack_new.c
+# division
+SRCS	+=	chunk_division.c  mark_push_target_for_division.c  set_cost_data.c  calc_best_cost_rotation.c
+# insertion
+SRCS	+=	insert_chunk.c  chunk_insertion.c  search_best_biases.c  random.c  insert_positions.c \
+			calc_search_area.c  calc_score.c  max_unsorted_element.c \
+			restore.c  search_min_score_target.c  mark_push_target_for_insertion.c
 
 
 # bonus
@@ -252,12 +249,6 @@ sbuild:
 
 norm:
 	@norminette -o mandatory bonus $(LIBFT_DIR) | grep Error || true
-
-test100:
-	cd push_swap_tester; python3 push_swap_tester.py -l 100 -c 500; cd ..
-
-test500:
-	cd push_swap_tester; python3 push_swap_tester.py -l 500 -c 500; cd ..
 
 # -------------------------- #
 #       Cleanup Rules        #

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_a_to_rank.c                                :+:      :+:    :+:   */
+/*   rotate_a_to_rank.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 13:46:33 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/11/23 15:36:55 by stanaka2         ###   ########.fr       */
+/*   Created: 2025/12/07 16:09:20 by stanaka2          #+#    #+#             */
+/*   Updated: 2025/12/11 03:25:51 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rotate_a_to_rank(t_ctx *ctx, int64_t target_rank)
 	if (up_rotation_cost == 0)
 		return ;
 	if (up_rotation_cost <= down_rotation_cost)
-		execute_rotate_orders(ctx, up_rotation_cost, ra);
+		execute_orders_rotate(ctx, up_rotation_cost, ra);
 	else
-		execute_rotate_orders(ctx, down_rotation_cost, rra);
+		execute_orders_rotate(ctx, down_rotation_cost, rra);
 }

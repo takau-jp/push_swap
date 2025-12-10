@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_order.c                                    :+:      :+:    :+:   */
+/*   calc_push_cost.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/07 05:25:37 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 05:29:05 by stanaka2         ###   ########.fr       */
+/*   Created: 2025/12/04 13:25:52 by stanaka2          #+#    #+#             */
+/*   Updated: 2025/12/07 16:08:16 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	execute_rotate_orders(t_ctx *ctx, \
-	int64_t rotation_cost, t_order_func rotate_order)
+int64_t	calc_push_cost(t_order *order, t_order *prev_order)
 {
-	while (rotation_cost > 0)
-	{
-		rotate_order(ctx);
-		rotation_cost--;
-	}
-}
+	int64_t	cost;
 
-void	execute_orders(t_ctx *ctx, t_order_func orders[])
-{
-	int64_t	i;
-
-	i = 0;
-	while (orders[i] != NULL)
-	{
-		orders[i](ctx);
-		i++;
-	}
+	cost = 0;
+	cost += order->ra;
+	cost += order->rra;
+	cost += order->rb;
+	cost += order->rrb;
+	cost += order->rr;
+	cost += order->rrr;
+	cost += 1;
+	if (prev_order->pa == true && prev_order->rb > 0 && order->rrb > 0)
+		cost--;
+	else if (prev_order->pb == true && prev_order->ra > 0 && order->rra > 0)
+		cost--;
+	return (cost);
 }

@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 18:02:43 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 10:23:54 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/07 16:06:19 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	grid_search(t_ctx *ctx);
 
 void	search_best_biases(t_ctx *ctx)
 {
+	ctx->restore.cost = ctx->cost;
 	ctx->restore.confirmed_order_node = ctx->current_order->prev;
 	ctx->restore.max_unsorted_element = ctx->max_unsorted_element;
-	ctx->best_state.cost = ft_get_infinity();
 	calc_search_area(ctx);
 	random_search(ctx);
 	grid_search(ctx);
@@ -44,7 +44,7 @@ void	random_search(t_ctx *ctx)
 		}
 		else
 		{
-			ctx->bias.rotate_b = range_random(ctx, 0.0, 10.0);
+			ctx->bias.rotate_b = range_random(ctx, -5.0, 10.0);
 			ctx->bias.big_element = range_random(ctx, 0.0, 5.0);
 		}
 		simulate_insert_chunk(ctx);

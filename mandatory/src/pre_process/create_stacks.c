@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 23:38:41 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/06 18:47:07 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 02:47:53 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	create_stacks(t_ctx *ctx, int *num_array)
 		node = ps_stack_new(num_array[i]);
 		if (node == NULL)
 		{
-			ps_stack_clear(ctx);
 			free(num_array);
+			clear_context(ctx);
 			error();
 		}
 		ps_stack_add_back(&(ctx->stack_a.top), node);

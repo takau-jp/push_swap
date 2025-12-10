@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 20:14:41 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 10:18:29 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 02:05:30 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@
 
 # include "libft.h"
 # include "types.h"
-# include "error.h"
-# include "less_than_5_elements.h"
 # include "order_utils.h"
-# include "pre_process.h"
 # include "sort_utils.h"  
 # include "stack_utils.h"
+# include "iddfs_sort.h"
+# include "pre_process.h"
 # include "chunk_division.h"
 # include "chunk_insertion.h"
 
-# define LIS_INIT SIZE_MAX
 # define CHUNK_COUNT_FACTOR 3.0
 
 struct s_stack
@@ -52,6 +50,7 @@ struct s_ctx
 	t_search_area		search_area;
 	t_best_state		best_state;
 	t_bias_factor		bias;
+	int64_t				cost;
 	t_element			*max_unsorted_element;
 	t_element			*min_chunk_element;
 	uint32_t			random_seed;
@@ -62,6 +61,12 @@ enum e_element_state
 	SORTED = 0,
 	UNSORTED = (1 << 0),
 	PUSH_TARGET = (1 << 1),
+};
+
+struct s_cost_data
+{
+	int64_t	cost;
+	int64_t	unpush_count;
 };
 
 struct s_element
@@ -76,8 +81,9 @@ struct s_element
 	t_cost_data				up;
 	t_cost_data				down;
 	int64_t					insert_position;
-	int64_t					ra_cost;
-	int64_t					rra_cost;
 };
+
+void	error(void);
+void	clear_context(t_ctx *ctx);
 
 #endif

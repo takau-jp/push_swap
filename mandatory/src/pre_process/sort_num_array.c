@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 22:41:07 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/06 18:57:37 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 02:47:02 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sort_num_array(t_ctx *ctx, int *num_array)
 	if (buf == NULL)
 	{
 		free(num_array);
-		ps_stack_clear(ctx);
+		clear_context(ctx);
 		error();
 	}
 	merge_sort(num_array, buf, 0, array_size - 1);

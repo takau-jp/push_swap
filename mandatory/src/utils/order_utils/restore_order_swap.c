@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   order_command_swap.c                               :+:      :+:    :+:   */
+/*   restore_order_swap.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 10:09:20 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 16:08:01 by stanaka2         ###   ########.fr       */
+/*   Created: 2025/12/11 01:59:50 by stanaka2          #+#    #+#             */
+/*   Updated: 2025/12/11 02:01:35 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,23 @@
 
 static bool	swap(t_element **stack);
 
-void	sa(t_ctx *ctx)
+void	restore_sa(t_ctx *ctx)
 {
-	if (swap(&(ctx->stack_a.top)))
-		add_order(ctx, "sa");
+	swap(&(ctx->stack_a.top));
 }
 
-void	sb(t_ctx *ctx)
+void	restore_sb(t_ctx *ctx)
 {
-	if (swap(&(ctx->stack_b.top)))
-		add_order(ctx, "sb");
+	swap(&(ctx->stack_b.top));
 }
 
-void	ss(t_ctx *ctx)
+void	restore_ss(t_ctx *ctx)
 {
-	if (swap(&(ctx->stack_a.top)))
-	{
-		if (swap(&(ctx->stack_b.top)))
-		{
-			add_order(ctx, "ss");
-			return ;
-		}
-		add_order(ctx, "sa");
-		return ;
-	}
-	else if (swap(&(ctx->stack_b.top)))
-		add_order(ctx, "sb");
+	swap(&(ctx->stack_a.top));
+	swap(&(ctx->stack_b.top));
 }
 
-static bool	swap(t_element **stack)
+bool	swap(t_element **stack)
 {
 	t_element	*first;
 	t_element	*second;

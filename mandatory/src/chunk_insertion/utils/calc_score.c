@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calc_cost.c                                        :+:      :+:    :+:   */
+/*   calc_score.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 18:30:47 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 05:03:02 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 01:48:28 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ double	calc_best_rotate(t_push_target *target);
 double	biased_rotation_cost(t_ctx *ctx, t_push_target *target);
 double	biased_element_cost(t_ctx *ctx, t_element *element);
 
-void	calc_cost(t_ctx *ctx, t_push_target *target)
+void	calc_score(t_ctx *ctx, t_push_target *target)
 {
 	if (target->rotate_b == up_rotate)
 	{
 		target->rotation_cost_a_same \
-			= ctx->rank[target->element->insert_position]->ra_cost;
+			= ctx->rank[target->element->insert_position]->up.cost;
 		target->rotation_cost_a_reverse \
-			= ctx->rank[target->element->insert_position]->rra_cost;
+			= ctx->rank[target->element->insert_position]->down.cost;
 	}
 	else
 	{
 		target->rotation_cost_a_same \
-			= ctx->rank[target->element->insert_position]->rra_cost;
+			= ctx->rank[target->element->insert_position]->down.cost;
 		target->rotation_cost_a_reverse \
-			= ctx->rank[target->element->insert_position]->ra_cost;
+			= ctx->rank[target->element->insert_position]->up.cost;
 	}
-	target->cost = calc_best_rotate(target);
-	target->cost += biased_rotation_cost(ctx, target);
-	target->cost += biased_element_cost(ctx, target->element);
+	target->score = calc_best_rotate(target);
+	target->score += biased_rotation_cost(ctx, target);
+	target->score += biased_element_cost(ctx, target->element);
 }
 
 double	calc_best_rotate(t_push_target *target)

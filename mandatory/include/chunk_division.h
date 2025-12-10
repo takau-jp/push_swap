@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:26:46 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 09:50:52 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 01:58:11 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ struct s_chunk
 {
 	int		number;
 	int		count;
-};
-
-struct s_cost_data
-{
-	int64_t	cost;
-	int64_t	unpush_count;
 };
 
 struct s_efficient_rotation

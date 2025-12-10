@@ -6,14 +6,14 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 11:42:09 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/06 22:39:12 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/07 15:46:14 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // Linear Congruential Generator, LCG (Park & Miller)
-unsigned int	ft_rand_r(unsigned int *seed)
+int	ft_rand_r(unsigned int *seed)
 {
 	uint64_t	x;
 

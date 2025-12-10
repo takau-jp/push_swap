@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 20:01:16 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/06 18:47:26 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/11 02:47:31 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	init_lis_info(t_ctx *ctx, t_lis *lis)
 		free(lis->seq);
 		free(lis->tails);
 		free(lis->prev);
-		free(ctx->rank);
-		ps_stack_clear(ctx);
+		clear_context(ctx);
 		error();
 	}
 	reset_tails(*lis, ctx->size);

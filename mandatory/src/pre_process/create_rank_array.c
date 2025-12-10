@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_element_array_by_rank.c                    :+:      :+:    :+:   */
+/*   create_rank_array.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 11:52:45 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/11/25 22:08:21 by stanaka2         ###   ########.fr       */
+/*   Created: 2025/12/07 16:07:04 by stanaka2          #+#    #+#             */
+/*   Updated: 2025/12/11 02:46:50 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	create_rank_array(t_ctx *ctx)
 		= (t_element **)malloc(sizeof(t_element *) * ctx->size);
 	if (ctx->rank == NULL)
 	{
-		ps_stack_clear(ctx);
+		clear_context(ctx);
 		error();
 	}
 	element = ctx->stack_a.top;

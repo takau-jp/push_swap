@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calc_best_cost_rotation.c                       :+:      :+:    :+:   */
+/*   calc_best_cost_rotation.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 14:43:26 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 09:46:59 by stanaka2         ###   ########.fr       */
+/*   Created: 2025/12/07 16:02:39 by stanaka2          #+#    #+#             */
+/*   Updated: 2025/12/11 01:31:28 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	calc_best_cost_rotation_with_pivot(t_ctx *ctx, int64_t *best_cost, \
 	t_element	*goal;
 	t_element	*end;
 
-	end = get_next_push_target(ctx->stack_a.top, reverse_rotate(rotate));
+	end = get_next_push_target(ctx->stack_a.top, rotate);
 	pivot = ctx->stack_a.top;
 	while (true)
 	{
@@ -47,7 +47,7 @@ void	calc_best_cost_rotation_with_pivot(t_ctx *ctx, int64_t *best_cost, \
 			pivot = rotate(pivot);
 		if (pivot == end)
 			return ;
-		goal = get_next_push_target(pivot, reverse_rotate(rotate));
+		goal = get_next_push_target(pivot, rotate);
 		if (evaluate_rotation_cost_with_pivot(\
 				best_cost, goal, pivot, rotate) == true)
 			*rotation = (t_efficient_rotation){rotate, pivot};
