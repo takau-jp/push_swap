@@ -10,16 +10,14 @@
 
 ### push_swap
 
-- **The main goal or problem it solves**
-  - The goal is to sort the numbers in stack a in ascending order.
-<br>
+- **The main goal**
+  - The goal is to sort the numbers in stack A in ascending order in as few operations as possible.
+  - Output the sequence of operations required for sorting.
 - **What the project does**
   - You have 2 stacks named **a** and **b**.
-<br>
   - At the beginning:
     - The stack a contains a random number of unique negative and/or positive integers.
     - The stack b is empty.
-<br>
   - You have the following operations:
     - **sa** (swap a): Swap the first 2 elements at the top of stack a.
  Do nothing if there is only one element or none.
@@ -43,8 +41,8 @@
 
 ### checker
 
-- **The main goal or problem it solves**
-  - The purpose is to check whether the sorting is completed using the operations entered from standard input.
+- **The main goal**
+  - The goal is to check whether the sorting is completed using the operations entered from standard input.
 
 ---
 
@@ -93,7 +91,13 @@ OK or KO
 
 ## Resources
 
-- No Resources
+- > [Xorshift](https://ja.wikipedia.org/wiki/Xorshift)
+- > [乱数アルゴリズムXorshiftの弱点と改善案](https://qiita.com/Shinoda_Naoki/items/5208b295d633df0aab47)
+- > [良い xorshift、悪い xorshift](https://www.cepstrum.co.jp/hobby/xorshift/xorshift.html)
+- > [線形合同法](https://ja.wikipedia.org/wiki/%E7%B7%9A%E5%BD%A2%E5%90%88%E5%90%8C%E6%B3%95)
+
+### AI
+
 - AI was used for analyzing statistical data and for brainstorming.
 - No AI-generated code or ideas were included in the project.
 
