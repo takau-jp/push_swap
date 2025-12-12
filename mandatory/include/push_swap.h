@@ -13,9 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <fcntl.h>
-# include <stdio.h>
-
 # include "libft.h"
 # include "types.h"
 # include "order_utils.h"
