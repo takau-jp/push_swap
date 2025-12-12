@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:49:54 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 16:07:02 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/12 22:12:00 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,21 @@ void	coordinate_compression(t_ctx *ctx, int *num_array)
 	int64_t		i;
 
 	sort_num_array(ctx, num_array);
+	ctx->rank \
+		= (t_element **)malloc(sizeof(t_element *) * ctx->size);
+	if (ctx->rank == NULL)
+	{
+		free(num_array);
+		clear_context(ctx);
+		error();
+	}
 	i = 0;
 	element = ctx->stack_a.top;
 	while (i < ctx->size)
 	{
 		element->rank = find_rank(
 				num_array, element->value, 0, ctx->size - 1);
+		ctx->rank[element->rank] = element;
 		i++;
 		element = element->next;
 	}

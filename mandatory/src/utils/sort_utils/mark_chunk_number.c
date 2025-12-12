@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:01:21 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/07 16:09:18 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/12 22:13:30 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,8 @@ void	mark_chunk_number(t_ctx *ctx)
 		count = 0;
 		while (count < chunk_size)
 		{
-			if (ctx->unsorted_rank[i]->state & UNSORTED)
-			{
-				ctx->unsorted_rank[i]->chunk_number = chunk_number;
-				count++;
-			}
+			ctx->unsorted_rank[i]->chunk_number = chunk_number;
+			count++;
 			i++;
 		}
 		chunk_number++;

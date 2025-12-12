@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 20:05:08 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/11 02:55:54 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/12 22:17:08 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int argc, char **argv)
 	{
 		coordinate_compression(&ctx, num_array);
 		free(num_array);
-		create_rank_array(&ctx);
 		mark_unsorted(&ctx);
 		chunk_sort(&ctx);
 	}

@@ -6,7 +6,7 @@
 #    By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/29 14:10:40 by stanaka2          #+#    #+#              #
-#    Updated: 2025/12/12 22:09:21 by stanaka2         ###   ########.fr        #
+#    Updated: 2025/12/12 22:16:37 by stanaka2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,7 +122,7 @@ SRCS	+=	ps_stack_add_back.c  ps_stack_add_front.c  ps_stack_clear.c  ps_stack_ne
 # iddfs_sort
 SRCS	+=	iddfs_sort.c  is_sorted.c  is_valid_order.c  restore_order.c  set_order_table.c
 # pre_process
-SRCS	+=	coordinate_compression.c  create_rank_array.c  get_longest_increasing_subsequence.c \
+SRCS	+=	coordinate_compression.c  get_longest_increasing_subsequence.c \
 			mark_unsorted.c  sort_num_array.c  free_splitted.c  argument_validations.c \
 			lis_utils.c  parse_argument.c  create_stacks.c
 # division
