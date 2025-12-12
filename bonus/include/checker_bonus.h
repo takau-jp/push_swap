@@ -6,15 +6,12 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 20:14:44 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/06 22:40:12 by stanaka2         ###   ########.fr       */
+/*   Updated: 2025/12/12 22:08:43 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
-
-# include <fcntl.h>
-# include <stdio.h>
 
 # include "libft.h"
 

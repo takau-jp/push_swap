@@ -6,7 +6,7 @@
 #    By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/29 14:10:40 by stanaka2          #+#    #+#              #
-#    Updated: 2025/12/11 03:26:34 by stanaka2         ###   ########.fr        #
+#    Updated: 2025/12/12 22:09:21 by stanaka2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -272,4 +272,4 @@ re:	fclean all
 #  Include Dependency Files  #
 # -------------------------- #
 
--include $(DEPS)
+-include $(DEPS) $(B_DEPS)
