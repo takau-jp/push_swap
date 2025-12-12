@@ -48,7 +48,7 @@
 
 ## Instructions
 
-### Compilation
+### Build
 
 ``` bash
 # push_swap
