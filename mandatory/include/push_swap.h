@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 20:14:41 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/11 02:05:30 by stanaka2         ###   ########.fr       */
+/*   Updated: 2026/06/22 21:28:21 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
 # include "types.h"
 # include "order_utils.h"
 # include "sort_utils.h"  

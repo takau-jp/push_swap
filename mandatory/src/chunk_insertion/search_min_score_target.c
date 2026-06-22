@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 18:28:52 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/11 02:58:12 by stanaka2         ###   ########.fr       */
+/*   Updated: 2026/06/22 21:29:10 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_push_target	search_min_score_target(t_ctx *ctx)
 
 	set_rotate_a_cost(ctx);
 	ctx->max_unsorted_element = renew_max_unsorted_element(ctx);
-	min_score_target.score = ft_get_infinity();
+	min_score_target.score = 1.0 / 0.0;
 	search_min_score_target_with_rotate(ctx, &min_score_target, down_rotate);
 	search_min_score_target_with_rotate(ctx, &min_score_target, up_rotate);
 	return (min_score_target);

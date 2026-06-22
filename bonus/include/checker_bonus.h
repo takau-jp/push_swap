@@ -6,7 +6,7 @@
 /*   By: stanaka2 <stanaka2@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 20:14:44 by stanaka2          #+#    #+#             */
-/*   Updated: 2025/12/12 22:08:43 by stanaka2         ###   ########.fr       */
+/*   Updated: 2026/06/22 21:29:47 by stanaka2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define CHECKER_BONUS_H
 
 # include "libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
 
 typedef struct s_ctx		t_ctx;
 typedef struct s_stack		t_stack;
