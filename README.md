@@ -126,8 +126,6 @@ median: 3242
 min   : 3137
 ```
 
-Achieved the No.1 record at 42Tokyo as of December 7, 2025.
-
 ---
 
 ## Useful Tester and Visualizer
